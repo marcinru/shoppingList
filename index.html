@@ -10,10 +10,8 @@
 <body>
     <div id="app" class="container">
         <h2>{{ title }}</h2>
-        <form @submit="addItem">
-            <input v-model="newItem" placeholder="Dodaj produkt">
-            <button type="submit">Dodaj!</button>
-        </form>
+        <input v-model="newItem" placeholder="Dodaj produkt" @keyup.enter="addItem">
+        <button type="submit" @click="addItem">Dodaj!</button>
         <ul>
             <li v-for="item in items">
                 <label>
@@ -24,11 +22,9 @@
                 </label>
             </li>
         </ul>
-        <div class="footer">
-            <hr>
-            <em>Zmień nazwę listy zakupów</em>
-            <input type="text" v-model="title">
-        </div>
+        <hr>
+        <em>Zmień nazwę listy zakupów</em>
+        <input type="text" v-model="title">
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="shopping.js"></script>
